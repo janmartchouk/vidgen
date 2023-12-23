@@ -195,33 +195,37 @@ def upload_to_youtube(logger, db: DB):
     """
     Upload videos to YouTube.
     """
-    all_posts = db.get_all_posts()
-    if args.quick:
-        all_posts = all_posts[:args.quick_limit]
+    pass
 
-    for post in all_posts:
-        if not post.uploaded_youtube: #TODO
-            logger.debug(f"Skipping YouTube upload for post {post.short_hash} because it is already uploaded")
-            continue
-        parts_folder = os.path.join(VIDEO_DIR, f"{post.hash}_parts")
-        parts_filenames = os.listdir(parts_folder)
-        for num, file in enumerate(parts_filenames):
-            youtube_title = f"{post.title} (Part {num+1}/{len(parts_filenames)})"
-            youtube_title = shorten_string(youtube_title, max_length=110)
-            metadata = {
-                'title': youtube_title,
-                'description': f"Posted by {post.author} in /r/{post.subreddit} #shorts",
-                'tags': ['shorts']
-            }
-            uploader = YouTubeUploader(os.path.join(parts_folder, file), metadata_dict=metadata)
-            try:
-                was_uploaded, id = uploader.upload()
-                assert was_uploaded
-                post.uploaded_youtube = True
-                db.update_post(post)
-                logger.debug(f'Uploaded to YouTube at id {id} -- {post.short_hash}')
-            except Exception as exc:
-                logger.error(f'Failed to upload {post.short_hash} to YouTube: {exc}')
+    # This is broken right now. :(
+
+    # all_posts = db.get_all_posts()
+    # if args.quick:
+    #     all_posts = all_posts[:args.quick_limit]
+
+    # for post in all_posts:
+    #     if post.uploaded_youtube:
+    #         logger.debug(f"Skipping YouTube upload for post {post.short_hash} because it is already uploaded")
+    #         continue
+    #     parts_folder = os.path.join(VIDEO_DIR, f"{post.hash}_parts")
+    #     parts_filenames = os.listdir(parts_folder)
+    #     for num, file in enumerate(parts_filenames):
+    #         youtube_title = f"{post.title} (Part {num+1}/{len(parts_filenames)})"
+    #         youtube_title = shorten_string(youtube_title, max_length=110)
+    #         metadata = {
+    #             'title': youtube_title,
+    #             'description': f"Posted by {post.author} in /r/{post.subreddit} #shorts",
+    #             'tags': ['shorts']
+    #         }
+    #         uploader = YouTubeUploader(os.path.join(parts_folder, file), metadata_dict=metadata, loglevel = logging.DEBUG)
+    #         try:
+    #             was_uploaded, id = uploader.upload()
+    #             assert was_uploaded
+    #             post.uploaded_youtube = True
+    #             db.update_post(post)
+    #             logger.debug(f'Uploaded to YouTube at id {id} -- {post.short_hash}')
+    #         except Exception as exc:
+    #             logger.error(f'Failed to upload {post.short_hash} to YouTube: {exc}')
         
 
 if __name__ == '__main__':

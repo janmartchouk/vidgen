@@ -4,7 +4,7 @@ SUBTITLE_DIR = 'data/subtitles'
 BACKGROUNDS_DIR = 'data/video/bg'
 VIDEO_DIR = 'data/video/done'
 FONT = {
-    'PATH': 'data/ttf/Upright.ttf',
-    'NAME': 'Upright',
+    'PATH': 'data/ttf/LiberationSans-Regular.ttf',
+    'NAME': 'Liberation Sans Regular',
     'SIZE': 20
 }

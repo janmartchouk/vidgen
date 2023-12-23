@@ -19,3 +19,4 @@ data/ttf/*
 data/tmp/*
 data/subtitles/*
 data/audio/*
+utils/youtube_uploader.py
