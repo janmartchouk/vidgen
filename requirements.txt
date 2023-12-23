@@ -1,0 +1,9 @@
+pydub
+tqdm
+bs4
+feedparser
+termcolor
+openai-whisper
+selenium==3.8.0 
+selenium_firefox==0.2.7 
+geckodriver
