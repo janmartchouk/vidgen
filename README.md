@@ -121,8 +121,8 @@ It takes the following options from the command line:
 + More modular usage such as calling the program with a direct reddit link
 + More platforms for content apart from reddit (4chan greentexts? idk)
 
-### Credits
-(Giooorgiooo)[https://github.com/Giooorgiooo/TikTok-Voice-TTS] for the TikTok voice TTS
-(weilbyte)[https://github.com/weilbyte] for providing the API endpoints for the TikTok voice
-(OpenAI)[https://github.com/openai/whisper] for providing whisper free-of-charge, which is used for making the subtitles
-(FFmpeg)[https://ffmpeg.org/] for providing the best general-purpose audio-video tool out there
+### Credits, Thanks
++ [Giooorgiooo](https://github.com/Giooorgiooo/TikTok-Voice-TTS) for the TikTok voice TTS
++ [weilbyte](https://github.com/weilbyte) for providing the API endpoints for the TikTok voice
++ [OpenAI](https://github.com/openai/whisper) for providing whisper free-of-charge, which is used for making the subtitles
++ [FFmpeg](https://ffmpeg.org/) for providing the best general-purpose audio-video tool out there
